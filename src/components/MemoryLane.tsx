@@ -46,16 +46,16 @@ export default function MemoryLane() {
           </p>
         </ScrollReveal>
 
-        <div className="mt-16 columns-1 gap-6 sm:columns-2 lg:columns-3">
+        <div className="mt-16 columns-2 gap-3 sm:gap-6 sm:columns-2 lg:columns-3">
           {photos.map((p, i) => {
             const isVideo = 'media' in p && p.media === 'video';
             return (
-              <ScrollReveal key={i} delay={(i % 3) * 0.1} className="mb-6 break-inside-avoid">
+              <ScrollReveal key={i} delay={(i % 3) * 0.1} className="mb-3 break-inside-avoid sm:mb-6">
                 <motion.button
                   onClick={() => setActive(i)}
                   whileHover={{ y: -8, rotate: 0, scale: 1.03 }}
                   transition={{ type: 'spring', stiffness: 200, damping: 16 }}
-                  className="group relative block w-full cursor-pointer rounded-[10px] bg-white p-3 pb-14 text-left shadow-soft hover:shadow-glow"
+                  className="group relative block w-full cursor-pointer rounded-[10px] bg-white p-2 pb-10 text-left shadow-soft hover:shadow-glow sm:p-3 sm:pb-14"
                   style={{ transform: `rotate(${p.rotate}deg)` }}
                   aria-label={`Open ${isVideo ? 'video' : 'photo'}: ${p.caption}`}
                 >
@@ -84,7 +84,7 @@ export default function MemoryLane() {
                       tap to expand
                     </div>
                   </div>
-                  <p className="absolute bottom-3 left-0 right-0 text-center font-dancing text-xl text-ink">
+                  <p className="absolute bottom-2 left-0 right-0 px-1 text-center font-dancing text-base leading-tight text-ink sm:bottom-3 sm:text-xl">
                     {p.caption}
                   </p>
                 </motion.button>
